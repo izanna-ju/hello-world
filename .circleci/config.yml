@@ -40,7 +40,7 @@ jobs:
     steps:
       - run:
           name: "Display Name"
-          command: "echo ${MY_ENV_VAR}"
+          command: echo ${MY_ENV_VAR}
   
       
 
