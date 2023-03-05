@@ -33,6 +33,15 @@ jobs:
       - run:
           name: "Display World"
           command: "echo world"
+  
+  print_name:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run:
+          name: "Display Name"
+          command: "echo ${MY_ENV_VAR}"
+  
       
 
 # Invoke jobs via workflows
