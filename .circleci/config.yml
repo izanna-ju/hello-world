@@ -11,21 +11,19 @@ jobs:
     steps:
       - run:
           name: "Save Hello World to output file"
-          command: echo "hello world" > output.txt
+          command: echo "hello world" > ~/output.txt
       - persist_to_workspace:
-          root: /tmp/workspace
+          root: ~/
           paths:
-            - target/output.txt
+            - output.txt
 
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run:
-          name: "Display Hello World"
-          command: cat output.txt
       - attach_workspace:
-          at: /tmp/workspace
+          at: ~/
+      - run: cat ~/output.txt
   
     
   print_hello:
@@ -57,7 +55,7 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  my_workflow:
     jobs:
       - print_hello
       - print_world:
