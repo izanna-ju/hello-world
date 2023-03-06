@@ -23,7 +23,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: cat ~/output.txt
+      - run: 
+          name: "Display hello world"
+          command: cat ~/output.txt
   
     
   print_hello:
