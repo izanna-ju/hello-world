@@ -94,3 +94,4 @@ workflows:
       - print_output_file:
           requires: [say_hello_world_output]
       - print_workflow_id
+      - fail_test
