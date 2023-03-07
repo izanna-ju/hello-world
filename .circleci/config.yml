@@ -66,6 +66,19 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
+
+  fail_test:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run:
+          name: "Display Hello World"
+          command: return 1
+
+      - run:
+          name: "Print job fail"
+          command: echo "job-fail"
+          when: on_fail
   
 
 # Invoke jobs via workflows
